@@ -1,13 +1,12 @@
-using Person.Data;
-using Person.Routes;
 using Microsoft.EntityFrameworkCore;
-
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddDbContext<PersonContext>(options =>
+
+//Para MySQL
+builder.Services.AddDbContext<DbContext>(options =>
     options.UseMySql(
         builder.Configuration.GetConnectionString("DefaultConnection"),
         ServerVersion.AutoDetect(
@@ -22,8 +21,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
-app.PersonRoutes(); //Agr o DadosRoutes extende de app :)
-
 app.UseHttpsRedirection();
+
+app.MapGet("/", () => "API TechMarketing on");
 app.Run();

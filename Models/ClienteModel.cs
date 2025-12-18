@@ -1,12 +1,20 @@
-using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Cliente.Models;
+namespace TechMarketing.Models;
 
+[Table ("Clientes")]
 public class ClienteModel
 {
-    public Guid Id { get; init; }
-    public int clienteTotal { get; set; }
-    public int clienteSatisfeito { get; set; }
+    [Key]
+    [Column("id")]
+    public Guid Id { get; set; }
+
+    [Column("cliente_total")]
+    public int ClienteTotal { get; set; }
+
+    [Column("cliente_satisfeito")]
+    public int ClienteSatisfeito { get; set; }
     
 
 }

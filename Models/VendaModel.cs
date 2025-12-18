@@ -1,10 +1,22 @@
-namespace Venda.Models;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
+namespace TechMarketing.Models;
+
+[Table("vendas")]
 public class VendaModel
 {
-    public int Id { get; init; }
-    public int quantidadeVenda { get; set; }
-    public int anoVenda { get; set; }
-    public int metaVenda { get; set; }
+    [Key]
+    [Column("id")]
+    public int Id { get; set; }
+
+    [Column("quantidade_venda")]
+    public int QuantidadeVenda { get; set; }
+
+    [Column("ano_venda")]
+    public int AnoVenda { get; set; }
+
+    [Column("meta_venda")]
+    public int MetaVenda { get; set; }
 
 }
