@@ -1,0 +1,15 @@
+# .NET
+bin/
+obj/
+
+# Configurações sensíveis
+appsettings.Development.json
+appsettings.Production.json
+
+# IDEs
+.vs/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
