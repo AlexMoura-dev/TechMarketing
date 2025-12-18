@@ -1,15 +1,14 @@
-# .NET
+#.NET
 bin/
 obj/
 
-# Configurações sensíveis
+# Sensive
 appsettings.Development.json
 appsettings.Production.json
 
-# IDEs
+# IDE e OS
 .vs/
 .vscode/
 
-# OS
 .DS_Store
 Thumbs.db
