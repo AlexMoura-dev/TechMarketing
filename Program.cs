@@ -1,4 +1,6 @@
+using TechMarketing.Data;
 using Microsoft.EntityFrameworkCore;
+using TechMarketing.Endpoints;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,7 +8,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 //Para MySQL
-builder.Services.AddDbContext<DbContext>(options =>
+builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseMySql(
         builder.Configuration.GetConnectionString("DefaultConnection"),
         ServerVersion.AutoDetect(
@@ -23,5 +25,7 @@ if (app.Environment.IsDevelopment())
 }
 app.UseHttpsRedirection();
 
-app.MapGet("/", () => "API TechMarketing on");
+app.MapGet("/", () => "TechMarketing on");
+app.MapClientesEndpoint();
+app.MapVendasEndpoint();
 app.Run();
